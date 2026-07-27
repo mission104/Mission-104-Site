@@ -10,6 +10,7 @@
 <style>
   :root{--bg:#efeee9;--ink:#16181d;--blue:#2557e8;--gold:#f2b207;--red:#c9342b;--white:#fff;--gray:#5c6066;}
   *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
   .wrap{max-width:820px;margin:0 auto;padding:0 22px}
   .mono{font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.74rem}
@@ -49,9 +50,13 @@
   .logo{white-space:nowrap}
   header .btn{white-space:nowrap}
   @media (max-width:520px){
-    .logo{font-size:.82rem;padding:7px 10px;letter-spacing:.04em}
-    header .btn{font-size:.7rem !important;padding:8px 10px !important;box-shadow:3px 3px 0 var(--ink)}
+    .logo{font-size:.98rem;padding:9px 13px;letter-spacing:.05em}
+    header .btn{font-size:.8rem !important;padding:10px 13px !important;box-shadow:4px 4px 0 var(--ink)}
     .head-in{gap:8px}
+  }
+  @media (max-width:370px){
+    .logo{font-size:.85rem;padding:8px 10px}
+    header .btn{font-size:.7rem !important;padding:8px 10px !important}
   }
 
   /* --- matching footer across pages --- */
@@ -75,7 +80,7 @@
     <h1>Your oldest tech headache.<br><span class="blue">First fix — on me.</span></h1>
     <p class="lead">The dead camera. The Wi-Fi corner everyone jokes about. The printer that's "always been like that." Every building has a thing everybody's learned to live with.</p>
     <p class="lead"><b>Tell me what yours is — the first fix is free. Consider it my job interview. After that, flat rates, quoted first.</b></p>
-
+    <p style="margin-top:26px"><a class="btn" href="#claim">Get my free fix →</a></p>
   </div>
 </section>
 
@@ -89,7 +94,7 @@
       <div class="step"><div class="num">✓</div><div><b>You can say yes</b><span>You're the owner, manager, or the person in charge of the building.</span></div></div>
       <div class="step"><div class="num">✓</div><div><b>Tech your business depends on</b><span>The headache costs you time, money, or sleep — not a cosmetic nice-to-have.</span></div></div>
     </div>
-    <div class="formbox">
+    <div class="formbox" id="claim">
       <div class="eyebrow"><span class="sq"></span><span class="mono" style="color:var(--gold)">Claim your free first fix</span></div>
       <h2>What's the thing?</h2>
       <!-- Wire this form to your booking/form handler (e.g. Formspree): replace action below -->
