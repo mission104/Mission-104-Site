@@ -34,10 +34,10 @@
   .btn-red{background:var(--red);color:#fff;border-color:var(--ink);box-shadow:5px 5px 0 var(--ink)}
 
   header{background:var(--bg);border-bottom:1px solid #d8d6cd;padding:14px 0}
-  .head-in{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
   .logo{background:var(--ink);color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.05rem;padding:8px 14px;letter-spacing:.06em;text-decoration:none}
   .logo b{color:var(--gold);font-weight:600}
-  .head-cta{display:flex;gap:10px;flex-wrap:wrap}
+  .head-cta{display:flex;gap:10px;flex-wrap:nowrap}
   .head-cta .btn{padding:9px 16px;font-size:.85rem}
 
   section{padding:64px 0}
@@ -69,8 +69,24 @@
   .contact h2{color:#fff}
   .contact .big-phone{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(1.9rem,6vw,3rem);color:var(--gold);text-decoration:none;display:inline-block;margin:10px 0 8px}
   .contact p{color:#aab0b8}
-  footer{background:var(--ink);color:#7c828b;font-size:.8rem;text-align:center;padding:20px 0;border-top:1px solid #2c3037}
+  footer{background:var(--ink);color:#7c828b;font-size:.8rem;text-align:center;padding:22px 0;border-top:1px solid #2c3037}
   footer .mono{letter-spacing:.12em}
+
+  /* --- consistent single-line header across pages --- */
+  .head-in{flex-wrap:nowrap !important}
+  .head-cta{flex-wrap:nowrap !important}
+  .logo{white-space:nowrap}
+  header .btn{white-space:nowrap}
+  @media (max-width:520px){
+    .logo{font-size:.82rem;padding:7px 10px;letter-spacing:.04em}
+    header .btn{font-size:.7rem !important;padding:8px 10px !important;box-shadow:3px 3px 0 var(--ink)}
+    .head-in{gap:8px}
+  }
+
+  /* --- matching footer across pages --- */
+  footer .f-guarantee{color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:.01em}
+  footer .f-meta{margin-top:7px;font-size:.8rem;color:#7c828b}
+  footer .f-meta .mono{letter-spacing:.12em}
 </style>
 </head>
 <body>
@@ -131,12 +147,11 @@
   <div class="wrap">
     <div class="eyebrow"><span class="sq"></span><span class="mono">Port 03 — The honest truth</span></div>
     <h2>What I'm not — and why that's good for you</h2>
-    <p style="max-width:66ch;margin-bottom:14px">I'm not the cheapest quote you'll get. I'm not a 24-man operation with a call center. And I won't pretend to know something I don't — if a job is outside my lane, I'll say so and point you to someone good.</p>
+    <p style="max-width:60ch;margin-bottom:16px">I'm not the cheapest quote you'll get, and I'm not a 24-man operation with a call center. If a job is outside my lane, I'll say so.</p>
     <div class="record">
-      <div class="stamp">1<small>man shop</small></div>
       <div>
-        <p style="margin-bottom:12px"><b>What I am:</b> a one-man shop that makes its living on repeat business. I don't survive on one-time invoices — I survive on you calling me back the next time something breaks. Keeping this relationship good isn't customer service. It's how I stay in business.</p>
-        <p>And when I take your job, you're not ticket #47 in a queue — <b>you're the only thing on my schedule.</b> The person who quoted it, the person fixing it, and the person answering your call are the same person. One focus. Better outcome.</p>
+        <p style="margin-bottom:10px"><b>What I am:</b> a one-man shop that lives on repeat business. I don't survive on one-time invoices — I survive on you calling me back. Keeping this good isn't customer service, it's how I stay in business.</p>
+        <p>You're not ticket #47 in a queue. Same person quotes it, fixes it, and answers your call. One focus, better outcome.</p>
       </div>
     </div>
   </div>
@@ -149,12 +164,16 @@
     <p style="margin:6px 0 18px"><a class="btn btn-gold" href="/free">The first fix is free — claim it</a></p>
     <a class="big-phone" href="tel:7864940900">786-494-0900</a>
     <p><a href="mailto:Mission104@proton.me" style="color:var(--gold);text-decoration:none;font-weight:600">Mission104@proton.me</a></p>
-    <p>Call or text · Fully insured · Serving all of South Florida — Broward, Miami-Dade, Palm Beach, Collier & Monroe · Flat rates, quoted before work starts</p>
+    <p style="margin-top:10px"><b>Call or text</b> · Fully insured · Flat rates, quoted before work starts</p>
+    <p style="opacity:.75;font-size:.92rem">Serving all of South Florida — Broward, Miami-Dade, Palm Beach, Collier &amp; Monroe</p>
   </div>
 </section>
 
 <footer>
-  <div class="wrap"><span class="mono">Mission_104</span> · © 2026 · Fully insured · Internet, cameras, phones & everything that connects</div>
+  <div class="wrap">
+    <div class="f-guarantee">If I don't fix it — you don't pay.</div>
+    <div class="f-meta"><span class="mono">Mission_104</span> · 786-494-0900 · Mission104@proton.me · insured · © 2026</div>
+  </div>
 </footer>
 
 </body>

@@ -20,7 +20,7 @@
   h2{font-size:clamp(1.3rem,3.6vw,1.9rem);margin-bottom:14px}
   .blue{color:var(--blue)}
   header{border-bottom:1px solid #d8d6cd;padding:14px 0}
-  .head-in{display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
   .logo{background:var(--ink);color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.05rem;padding:8px 14px;letter-spacing:.06em;text-decoration:none}
   .logo b{color:var(--gold);font-weight:600}
   .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:.95rem;padding:13px 22px;border:2px solid var(--ink);color:var(--ink);background:var(--gold);box-shadow:5px 5px 0 var(--ink);cursor:pointer;font-family:'Open Sans',sans-serif}
@@ -40,8 +40,24 @@
   .formbox textarea{min-height:110px;resize:vertical}
   .formbox .btn{margin-top:22px;border-color:var(--gold)}
   .fine{margin-top:16px;font-size:.8rem;color:#9a9ea6}
-  footer{background:var(--ink);color:#7c828b;font-size:.8rem;text-align:center;padding:20px 0}
+  footer{background:var(--ink);color:#7c828b;font-size:.8rem;text-align:center;padding:22px 0;border-top:1px solid #2c3037}
   footer .gold{color:var(--gold);font-weight:700}
+
+  /* --- consistent single-line header across pages --- */
+  .head-in{flex-wrap:nowrap !important}
+  .head-cta{flex-wrap:nowrap !important}
+  .logo{white-space:nowrap}
+  header .btn{white-space:nowrap}
+  @media (max-width:520px){
+    .logo{font-size:.82rem;padding:7px 10px;letter-spacing:.04em}
+    header .btn{font-size:.7rem !important;padding:8px 10px !important;box-shadow:3px 3px 0 var(--ink)}
+    .head-in{gap:8px}
+  }
+
+  /* --- matching footer across pages --- */
+  footer .f-guarantee{color:var(--gold);font-weight:700;font-size:1rem;letter-spacing:.01em}
+  footer .f-meta{margin-top:7px;font-size:.8rem;color:#7c828b}
+  footer .f-meta .mono{letter-spacing:.12em}
 </style>
 </head>
 <body>
@@ -121,7 +137,10 @@
 </section>
 
 <footer>
-  <div class="wrap"><span class="mono" style="letter-spacing:.12em">Mission_104</span> · <span class="gold">If I don't fix it — you don't pay.</span> · 786-494-0900 · Mission104@proton.me · insured · © 2026</div>
+  <div class="wrap">
+    <div class="f-guarantee">If I don't fix it — you don't pay.</div>
+    <div class="f-meta"><span class="mono">Mission_104</span> · 786-494-0900 · Mission104@proton.me · insured · © 2026</div>
+  </div>
 </footer>
 
 
