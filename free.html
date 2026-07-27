@@ -77,11 +77,10 @@
       <div class="eyebrow"><span class="sq"></span><span class="mono" style="color:var(--gold)">Claim your free first fix</span></div>
       <h2>What's the thing?</h2>
       <!-- Wire this form to your booking/form handler (e.g. Formspree): replace action below -->
-      <form action="https://api.web3forms.com/submit" method="POST">
+      <form id="leadform" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="575d6e1b-c66f-4be1-b2a1-f59f42db41ec">
         <input type="hidden" name="subject" value="New Free-Fix Lead — Mission 104">
         <input type="hidden" name="from_name" value="Mission 104 Website">
-        <input type="hidden" name="redirect" value="https://mission104.com/thanks.html">
         <input type="checkbox" name="botcheck" style="display:none">
         <label for="biz">Business name</label>
         <input id="biz" name="business" required>
@@ -125,5 +124,36 @@
   <div class="wrap"><span class="mono" style="letter-spacing:.12em">Mission_104</span> · <span class="gold">If I don't fix it — you don't pay.</span> · 786-494-0900 · Mission104@proton.me · insured · © 2026</div>
 </footer>
 
+
+<script>
+  (function () {
+    var form = document.getElementById('leadform');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      var data = Object.fromEntries(new FormData(form));
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, json: j }; }); })
+      .then(function (res) {
+        if (res.ok) {
+          window.location.href = '/thanks';
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Claim my free first fix'; }
+          alert('Something went wrong sending that. Please call or text 786-494-0900.');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Claim my free first fix'; }
+        alert('Something went wrong sending that. Please call or text 786-494-0900.');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
